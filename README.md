@@ -10,8 +10,8 @@
   <h2>How to register broadcast Receiver</h2>
   <div>
     <div>
+      
       private void registerBroadcastReceiver(){
-
         broadcastReceiver = new SmsBroadcastReceiver();
         broadcastReceiver.smsBroadcastReceiverListener = new SmsBroadcastReceiver.SmsBroadcastReceiverListener() {
             @Override
@@ -20,25 +20,26 @@
             }
             @Override
             public void onFailure() {
-
             }
         };
         IntentFilter intentFilter = new IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION);
-        this.registerReceiver(broadcastReceiver,intentFilter,RECEIVER_EXPORTED);
-    }
-    </div>
+        this.registerReceiver(broadcastReceiver,intentFilter,RECEIVER_EXPORTED);} 
+  </div>
 
+  <p>
     Why use RECEIVER_EXPORTED , u can read : https://stackoverflow.com/questions/77235063/one-of-receiver-exported-or-receiver-not-exported-should-be-specified-when-a-rec
-    
+  </p>
   </div>
   
   <h2>How to show dialog bottom when have otp</h2>
   Create method startSmartUserConsent in Activity
   <p>
+    
     private void startSmartUserConsent() {
         SmsRetrieverClient client = SmsRetriever.getClient(this);
         client.startSmsUserConsent(null);
     }
+    
   </p>
   <h2>How to get otp </h2>
   <p>
